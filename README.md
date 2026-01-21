@@ -1,73 +1,118 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# 👤 Profile Management System (Angular 20 + NestJS)
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Este es un proyecto **Fullstack** diseñado para la gestión de perfiles de usuario. Utiliza las últimas tecnologías de **Angular 20** para una reactividad moderna y **NestJS** para un backend robusto y escalable.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## 🚀 Características Principales
 
-## Description
+### **Frontend (Angular 20)**
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+* **Gestión de Estado con Signals:** Uso de `signal`, `computed` y `effect` para una reactividad eficiente y sin `Zone.js`.
+* **Arquitectura Standalone:** Componentes independientes sin necesidad de `NgModules`.
+* **Nuevo Control Flow:** Implementación de la sintaxis `@if`, `@for` y `@empty`.
+* **Inyección de Dependencias Moderna:** Uso de la función `inject()`.
+* **UI Profesional:** Estilizado con **Bootstrap 5** y **Bootstrap Icons**.
+* **Formularios Reactivos:** Validación avanzada de archivos e inputs.
 
-## Installation
+### **Backend (NestJS)**
 
-```bash
-$ npm install
-```
+* **Subida de Archivos:** Integración con **Multer** para el manejo de imágenes.
+* **Validación de Datos:** Uso de `ParseFilePipe` para controlar el tamaño y tipo de archivos.
+* **Servicio de Estáticos:** Configuración para servir imágenes directamente desde el servidor.
+* **Arquitectura Modular:** Separación clara entre controladores y servicios.
 
-## Running the app
+---
 
-```bash
-# development
-$ npm run start
+## 🛠️ Tecnologías Utilizadas
 
-# watch mode
-$ npm run start:dev
+| Capa | Tecnologías |
+| --- | --- |
+| **Frontend** | Angular 20, RxJS, Signals, Bootstrap 5 |
+| **Backend** | NestJS, TypeScript, Multer |
+| **Almacenamiento** | Sistema de archivos local (Images) |
 
-# production mode
-$ npm run start:prod
-```
+---
 
-## Test
+## 📦 Instalación y Configuración
+
+### 1. Clonar el repositorio
 
 ```bash
-# unit tests
-$ npm run test
+git clone https://github.com/FranciscoBelda/BackendFicheros
+git clone https://github.com/FranciscoBelda/FrontEndFicheros
+cd nombre-del-proyecto
 
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
 ```
 
-## Support
+### 2. Configuración del Backend (NestJS)
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+```bash
+npm install
+# Asegúrate de que la carpeta 'uploads' exista en la raíz del backend
+mkdir images
+npm run start:dev
 
-## Stay in touch
+```
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+> El servidor correrá en: `http://localhost:3000`
 
-## License
+### 3. Configuración del Frontend (Angular)
 
-Nest is [MIT licensed](LICENSE).
+```bash
+npm install
+ng serve
+
+```
+
+> La aplicación estará disponible en: `http://localhost:4200`
+
+---
+
+## 📡 API Endpoints
+
+| Método | Endpoint        | Descripción |
+| --- |-----------------| --- |
+| **GET** | `/profiles`     | Obtiene todos los perfiles |
+| **POST** | `/profiles`     | Crea un nuevo perfil (Multipart/form-data) |
+| **DELETE** | `/profiles/:id` | Elimina un perfil por ID |
+| **GET** | `/images/:img`  | Acceso directo a la imagen subida |
+
+---
+
+## 📂 Estructura del Proyecto
+
+### **Frontend**
+
+```text
+src/app/
+├── services/
+│   └── profile.service.ts   # Estado global con Signals
+├── components/
+│   ├── all-profiles/        # Listado reactivo (@for)
+│   └── create-profile/         # Formulario con preview de imagen
+└── common/
+    └── Profile.ts           # Interfaz de datos
+
+```
+
+### **Backend**
+
+```text
+src/
+├── profiles/
+│   ├── profiles.controller.ts # Lógica de Multer e Interceptores
+│   ├── profiles.service.ts    # Manejo de datos y archivos
+│   └── profiles.module.ts
+├── main.ts                    # Configuración de archivos estáticos
+└── uploads/                   # Almacenamiento de imágenes
+
+```
+
+---
+
+## 📝 Notas de Versión (Migración a v20)
+
+* Se eliminaron todas las suscripciones manuales de RxJS en los componentes.
+* La comunicación entre componentes se realiza mediante **Signals** compartidas en el servicio.
+* Se implementó el patrón de **Inmutabilidad** en las actualizaciones de estado mediante `this.signal.update()`.
+
+---

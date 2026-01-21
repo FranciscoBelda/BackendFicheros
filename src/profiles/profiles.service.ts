@@ -17,4 +17,8 @@ export class ProfilesService {
     const profiles  = await this.profileModel.find();
     return {profiles};
   }
+
+  async deleteProfile(id: string) {
+    return await this.profileModel.findByIdAndDelete(id);
+  }
 }
